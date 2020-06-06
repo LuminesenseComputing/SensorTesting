@@ -8,7 +8,7 @@
 #include <Stepper.h>
 
 
-///////PIN ASSIGNMENTS//////////////
+//////PIN ASSIGNMENTS//////////////
 ////////////////////////////////////
 //note that D3 is sketchy
 
@@ -117,11 +117,6 @@ void loop(){
         Serial.println(movingAvg);
     }  
 }
-
-
-/////////////OPERATION FUNCTIONS////////
-////////////////////////////////////////
-
 
 
 
