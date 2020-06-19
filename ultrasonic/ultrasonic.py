@@ -88,16 +88,41 @@ def getDistanceMovingAvg():
     Function: compute the distance base on a moving average 
     Returns: distance in cm
     """
-   
-    dist = 0
-    dist = distance(GPIO)
+    
+    ## TO BE CHANGED: arbitrary distance parameters
+    maxDist = 500
+    minDist = 50
+    AvgArr = []
+    n = 20 
 
-    ## Error check, check if value is out of bound
-    #
-    #
-    #
 
-    return 
+    ## Acquire data and add to database
+    try:
+        while True:
+       
+            # Get raw distance from distance function
+            dist = distance()
+            time.sleep(1)
+
+            # Error check, check if value is out of bound
+            if ( (minDist <= dist) and (maxDist >= dist) ):
+               # check current list length
+               if (len(AvgArr)==n):
+                   # list is full, dequeue/enqueue
+                   AvgArr = AvgArr[1:] + [dist]
+               else:
+                   # list has less than n items, enqueue
+                   AvgArr += [dist]
+                Avg = sum(AvgArr)/len(AvgArr)
+
+            print ("Measured Distance = %.1f cm" % Avg)
+
+    # Reset by pressing CTRL + C
+    except KeyboardInterrupt:
+        print("Measurement stopped by User")
+        GPIO.cleanup()
+
+    return True
 
 
 
