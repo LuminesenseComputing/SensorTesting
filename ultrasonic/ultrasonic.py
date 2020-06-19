@@ -3,7 +3,7 @@
 #      In RPi terminal, run the following command: python3 ultrasonic.py
 #   Output: Real-time distance measured by ultrasonic sensor 
 
-#   Last edit: Jordan Hong, 19:00 June 11, 2020 
+#   Last edit: Jordan Hong, 14:00 June 19, 2020 
 
 
 # Import Libraries
